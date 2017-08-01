@@ -1,0 +1,74 @@
+// 引入所有组件／全局的样式配置
+@import "normalize";
+@import "global";
+@import "variable";
+@import "util/util";
+
+// flex
+@import "../grid/index";
+
+@import "../icon/css/animation.css";
+// icon
+@import "../icon/icon.scss";
+// button
+@import "../button/button.scss";
+// modal
+@import "../modal/modal.scss";
+
+// animation
+@import "./animation";
+
+//progress
+@import "../progress/progress.scss";
+
+//radio
+@import "../radio/radio.scss";
+
+//table
+@import "../table/index";
+
+//input
+@import "../input/input.scss";
+
+//tabs
+@import "../tabs/tabs.scss";
+@import "../tabs/tab.scss";
+
+//menu
+@import "../menu/menu.scss";
+@import "../menu/menuItem.scss";
+
+//DropDownMenu
+@import "../dropDownMenu/dropDownMenu";
+
+// tooltip
+@import "../tooltip/tooltip";
+
+
+// date-picker
+@import "../date-picker/date-picker";
+@import "../date-picker/dt-item";
+
+//pagination
+@import "../pagination/pagination";
+
+//panel
+@import "../panel/panel";
+
+@mixin ne-style{
+    @include ne-flex-grid;
+    @include ne-icon;
+    @include global-styles;
+    @include ne-button;
+    @include ne-modal;
+    @include ne-input;
+    @include ne-tab;
+    @include ne-tabs;
+    @include ne-menu;
+    @include ne-menu-item;
+    @include ne-drop-down-menu;
+    @include ne-tooltip;
+    @include ne-pagination;
+}
+
+@include ne-style;

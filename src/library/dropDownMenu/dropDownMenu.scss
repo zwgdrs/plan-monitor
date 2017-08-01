@@ -1,0 +1,38 @@
+@mixin drop-down-base {
+    position: relative;
+    line-height: 2.25;
+    vertical-align: middle;
+}
+
+@mixin ne-drop-down-menu {
+    .drop-down-container {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        min-width: 60px;
+        min-height: 36px;
+        background-color: $height-gray;
+        border-radius: $global-radius;
+        width: 100%;
+    }
+    .#{$prefix}-drop-down-menu {
+        @include drop-down-base;
+    }
+    .select {
+        visibility: hidden;
+        opacity: 0;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: all $animation-duration-base ease-out;
+        &.select-entered {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .select-arrow {
+        float: right;
+        transform: rotate(90deg);
+    }
+}

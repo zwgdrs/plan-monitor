@@ -1,0 +1,67 @@
+$global-font-color-desc: #666;
+$panel-header-bg-color: #F8F8F8;
+.panel {
+  margin-top: 20px;
+  border: 1px solid #DDDDDD;
+  //line-height: 1.4;
+
+  &-normal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 30px;
+    font-size: 16px;
+    letter-spacing: 0.57px;
+    color: $global-font-color-desc;
+    background-color: $panel-header-bg-color;
+    border-bottom: 1px solid #DDDDDD;
+    .panel-normal-title {
+      line-height: 30px;
+    }
+  }
+
+  &-tab-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    letter-spacing: 0.57px;
+    color: $global-font-color-desc;
+    background-color: $panel-header-bg-color;
+    border-bottom: 1px solid #DDDDDD;
+    .panel-tab-title {
+      display: flex;
+      justify-content: space-between;
+      line-height: 30px;
+      .panel-tab-item {
+        position: relative;
+        width: 124px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        cursor: pointer;
+        .activeTab {
+          position: absolute;
+          top: 59px;
+          left: 0;
+          width: 123px;
+          height: 2px;
+          background-color: $panel-header-bg-color;
+        }
+      }
+
+    }
+  }
+  &-body {
+    padding-bottom: 25px;
+  }
+  &-foot {
+    color: $global-font-color-desc;
+    background-color: $panel-header-bg-color;
+  }
+  &-body, &-foot {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 30px;
+    font-size: 16px;
+    letter-spacing: 0.57px;
+  }
+}

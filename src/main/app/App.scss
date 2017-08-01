@@ -1,0 +1,156 @@
+.App {
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    font-size: 60px;
+    display: inline-block;
+}
+
+.App-header {
+    background-color: #222;
+    height: 120px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.app-btn-list {
+    text-align: left;
+    width: 980px;
+    margin: 0 auto;
+    .ne-icon.demo {
+        padding: 20px;
+        margin: 15px;
+        border: 1px solid #ddd;
+        display: inline-block;
+        font-size: 24px;
+    }
+    button {
+        margin: 10px;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.app-carousel-list {
+    width: 80%;
+    margin: 0 auto 50px;
+    .carousel {
+        margin: 20px;
+    }
+}
+
+.app-table {
+    width: 80%;
+    margin: 0 auto 50px;
+}
+
+.app-date-picker {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto 50px;
+}
+
+.grid {
+    padding: 20px 0;
+    margin: 0 auto;
+    width: 1180px;
+    background-color: #f2f2f2;
+    .row {
+        //background-image: linear-gradient(90deg,
+        //    #f5f5f5 4.16666667%,
+        //    transparent 0, transparent 8.33333333%, #f5f5f5 0, #f5f5f5 12.5%, transparent 0, transparent 16.66666667%, #f5f5f5 0, #f5f5f5 20.83333333%, transparent 0, transparent 25%, #f5f5f5 0, #f5f5f5 29.16666667%, transparent 0, transparent 33.33333333%, #f5f5f5 0, #f5f5f5 37.5%, transparent 0, transparent 41.66666667%, #f5f5f5 0, #f5f5f5 45.83333333%, transparent 0, transparent 50%, #f5f5f5 0, #f5f5f5 54.16666667%, transparent 0, transparent 58.33333333%, #f5f5f5 0, #f5f5f5 62.5%, transparent 0, transparent 66.66666667%, #f5f5f5 0, #f5f5f5 70.83333333%, transparent 0, transparent 75%, #f5f5f5 0, #f5f5f5 79.16666667%, transparent 0, transparent 83.33333333%, #f5f5f5 0, #f5f5f5 87.5%, transparent 0, transparent 91.66666667%, #f5f5f5 0, #f5f5f5 95.83333333%, transparent 0);
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+    .column > div {
+        line-height: 70px;
+        text-align: center;
+        background-color: rgba(#E25050, .6);
+        color: #fff;
+        .row {
+            background-color: transparent;
+        }
+        .column-content {
+            background-color: rgba(#8b0000, .6);
+        }
+    }
+}
+
+.height150 {
+    height: 150px;
+}
+
+.fade {
+    transition: all .5s;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    &-entering, &-entered {
+        opacity: 0.2;
+        transform: translate3d(20px, 0, 0);
+    }
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.fade-out {
+    opacity: 0.1;
+    transform: translate3d(100px, 0, 0);
+}
+
+.tooltip-dome {
+    width: 500px;
+    tr {
+        &:first-child,
+        &:last-child {
+            text-align: center;
+        }
+        td {
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+}
+
+.ne-tooltip-inner {
+    p:last-child {
+        text-align: center;
+    }
+    .ne-btn {
+        & + .ne-btn {
+            margin-left: 10px;
+        }
+    }
+}
+
+.fade-enter {
+    @extend .fade-in;
+    &.fade-enter-active {
+        @extend .fade-out;
+        transition: all 300ms ease-in-out;
+    }
+}
+
+.fade-exit {
+    @extend .fade-out;
+    &.fade-exit-active {
+        @extend .fade-in;
+        transition: all 300ms ease-in-out;
+    }
+}
+

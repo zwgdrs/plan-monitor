@@ -1,0 +1,44 @@
+$pagination-radius: 4px;
+$pagination-font-size: 14px;
+$pagination-item-padding: 8px 7px;
+
+@mixin ne-pagination {
+    .#{$prefix}-pagination {
+        font-size: $pagination-font-size;
+        @include clearfix;
+
+        li {
+            float: left;
+            line-height: 32px;
+
+            & + li {
+                margin-left: 16px;
+            }
+
+            &.ellipsis:before {
+                content: "\2026";
+                padding: 9px 8px;
+                background-color: $secondary-color;
+                border-radius: $pagination-radius;
+                display: inline-block;
+                line-height: 14px;
+            }
+
+            button {
+                margin: 0;
+                min-width: 32px;
+            }
+        }
+        input {
+            width: 64px;
+            margin: 0 10px;
+        }
+        select {
+            font-size: $pagination-font-size;
+            padding: $pagination-item-padding;
+            border-radius: $pagination-radius;
+            height: auto;
+            width: 60px;
+        }
+    }
+}

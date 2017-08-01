@@ -1,0 +1,27 @@
+@mixin tab-base {
+    flex: 1 1 80px;
+    height: 36px;
+    line-height: 2.25;
+    vertical-align: middle;
+    text-align: center;
+    transition: all  $animation-duration-base ease-out;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@mixin ne-tab {
+     .#{$prefix}-tab {
+         @include tab-base;
+         &:hover {
+             color: $primary-color;
+         }
+         &.#{$prefix}-tab-actived {
+             color: $primary-color;
+         }
+         &.#{$prefix}-tab-disabled {
+             color: $light-gray;
+             cursor: not-allowed;
+         }
+     }
+
+}

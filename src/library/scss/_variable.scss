@@ -1,0 +1,163 @@
+// 1. Global
+// 全局基础颜色
+$prefix: ne !default;
+$font-path: '../icon/font' !default;
+$main-color: #E25050 !default;
+$palette: (
+    //primary: #20A0FF,
+    primary: $main-color,
+    secondary: #f4f4f4,
+    success: #00a854,
+    warning: #f56a00,
+    danger: #dc1414,
+    info: #5687f7,
+);
+
+$height-gray: #f4f4f4 !default;
+$light-gray: #e6e6e6 !default;
+$medium-gray: #cacaca !default;
+$dark-gray: #8a8a8a !default;
+$light-black: #666 !default;
+$black: #000 !default;
+$dark-black: #333 !default;
+$white: #fff ;
+
+$gray-darker: lighten($black, 13.5%); // #222
+$gray-dark: lighten($black, 20%); // #333
+$gray: lighten($black, 33.5%); // #555
+$gray-light: lighten($black, 46.7%); // #777
+$gray-lighter: lighten($black, 93.5%); // #eee
+
+@if not map-has-key($palette, primary) {
+    @error 'In $palette, you must have a color named "primary".';
+}
+
+$primary-color: map-get($palette, primary);
+$secondary-color: map-get($palette, secondary);
+$success-color: map-get($palette, success);
+$warning-color: map-get($palette, warning);
+$danger-color: map-get($palette, danger);
+
+// 2. Animation
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out-back: cubic-bezier(0.12, 0.4, 0.29, 1.46);
+$ease-in-back: cubic-bezier(0.71, -0.46, 0.88, 0.6);
+$ease-in-out-back: cubic-bezier(0.71, -0.46, 0.29, 1.46);
+$ease-out-circ: cubic-bezier(0.08, 0.82, 0.17, 1);
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+$animation-duration-slower: .5s; // Modal
+$animation-duration-slow: .3s; // Modal
+$animation-duration-base: .2s;
+$animation-duration-fast: .1s; // Tooltip
+
+// 3. The Grid
+$grid-row-width: $global-width;
+/// 总栅格数
+$grid-column-count: 24;
+/// 栅格间隔
+$grid-column-gutter: 20;
+
+$breakpoints: (
+    small: 0,
+    medium: 640px,
+    large: 1024px,
+    xlarge: 1200px,
+    xxlarge: 1440px,
+);
+$breakpoint-classes: (small medium large);
+$block-grid-max: 8;
+// 4. Base Typography
+
+// 5. Typography Helpers
+// 6. Abide
+// 7. Accordion
+// 8. Accordion Menu
+// 9. Badge
+// 10. Breadcrumbs
+// 11. Button
+$button-sizes: (
+    tiny: 0.6rem,
+    small: 0.75rem,
+    default: 0.9rem,
+    large: 1.25rem,
+);
+$button-background: map_get($palette, secondary) !default;
+$button-color: $white !default;
+$button-radius: $global-radius !default;
+$btn-fill: solid !default;
+$btn-font-size-base: 14px !default;
+$btn-font-size-sm: 12px !default;
+$btn-font-size-lg: 16px !default;
+$btn-padding-base: 8px 14px !default;
+$btn-padding-sm: 8px 5px !default;
+$btn-padding-lg: $btn-padding-base !default;
+$btn-margin-base: 0 !default;
+$btn-height-base: 32px !default;
+$btn-height-lg: $btn-height-base * 1.25 !default;
+$btn-height-sm: $btn-height-base * 0.75 !default;
+$btn-min-width-sm: 32px !default;
+$btn-min-width-base: 64px !default;
+$btn-min-width-lg: 128px !default;
+$button-opacity-disabled: 0.6 !default;
+$border-color-base: #d9d9d9;
+// 12. Button Group
+// 13. Callout
+// 14. Close Button
+// 15. Drilldown
+// 16. Dropdown
+// 17. Dropdown Menu
+// 18. Flex Video
+// 19. Forms
+// 20. Label
+// 21. Media Object
+// 22. Menu
+// 23. Meter
+// 24. Off-canvas
+// 25. Orbit
+// 26. Pagination
+// 27. Progress Bar
+$progress-font-size-base: 14px !default;
+$process-default-color: $primary-color;
+$component-background: #fff;
+$background-color-base: #f7f7f7;
+$progress-remaining-color: $background-color-base;
+// 28. Reveal
+// 29. Slider
+// 30. Switch
+// 31. Table
+// 32. Tabs
+// 33. Thumbnail
+// 34. Title Bar
+// 35. Tooltip
+//** Tooltip body background color
+$tooltip-bg: $white;
+$tooltip-font-size: 14px;
+//** tooltip text color
+$tooltip-color: $global-font-color;
+//** tooltip maximum width
+$tooltip-min-width: 177px;
+//** tooltip arrow width
+$tooltip-arrow-width: 5px;
+//** tooltip arrow color
+$tooltip-arrow-color: $tooltip-bg;
+//** tooltip outer arrow width
+$tooltip-arrow-outer-width: $tooltip-arrow-width + 1;
+//**
+$tooltip-outer-color: rgba($black, .6);
+//** tooltip outer arrow color
+$tooltip-arrow-outer-color: rgba($black, .2);
+//** tooltip distance with trigger
+$tooltip-distance: $tooltip-arrow-width + 4;
+// 36. Top Bar
+// 37. Radio
+$radio-font-size-base: 14px !default;
+$input-height-base: 28px;
+$input-height-lg: 32px;
+$input-height-sm: 24px;

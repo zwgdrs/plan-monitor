@@ -1,0 +1,28 @@
+.paper {
+    width: 1180px;
+    font-size: 16px;
+    color: #2A2A2A;
+    margin: 0 auto;
+}
+
+.tabs {
+    :global .ne-tab {
+        line-height: 40px;
+        height: 40px;
+    }
+}
+
+.content {
+    margin: 70px 78px 160px 78px;
+    & > li {
+        list-style: disc;
+    }
+    ul li {
+        margin: 16px 0 16px 32px;
+    }
+}
+
+.question {
+    color: #333333;
+    font-weight: bold;
+}

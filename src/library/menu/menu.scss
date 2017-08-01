@@ -1,0 +1,16 @@
+@mixin menu-base {
+  background-color: #fff;
+    width: 120px;
+    border-radius: $global-radius;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 3;
+}
+
+@mixin ne-menu {
+     .#{$prefix}-menu {
+         @include menu-base;
+     }
+}

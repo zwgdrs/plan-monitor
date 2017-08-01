@@ -1,0 +1,122 @@
+$cycle-background: #666666 !default;
+@mixin cycle($cycle-background: #666666) {
+  display: inline-block;
+  content: '';
+  background: $cycle-background;
+  width: 5px;
+  height: 5px;
+  margin: 0 5px 3px 0;
+  border-radius: 5px;
+}
+
+.income-salary {
+  .data-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: 16px;
+      color: #333333;
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 484px;
+
+      .date-range {
+        width: 178px;
+        color: #999999;
+        .cursor {
+          cursor: pointer;
+        }
+        .redColor {
+          color: #E25050;
+        }
+      }
+      .data-date-search {
+        width: 276px;
+
+        .date-wh {
+          width: 120px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  .sd-body {
+    position: relative;
+    width: 100%;
+    height: 957px;
+
+    .sdb-charts {
+      width: 100%;
+      height: 370px;
+      border-bottom: 1px solid #EEEEEE;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 22px;
+        background: #fff;
+        font-size: 14px;
+        .title {
+          margin-right: 20px;
+          font-size: 16px;
+          &:before {
+            @include cycle;
+            margin-right: 10px;
+          }
+        }
+        .icon {
+          display: flex;
+          justify-content: flex-end;
+          .icon-item {
+            width: 70px;
+          }
+          .income {
+            &:before {
+              @include cycle(#5687F7);
+            }
+          }
+        }
+      }
+    }
+    .sdb-table {
+      width: 100%;
+      //height: 300px;
+      margin-bottom: 15px;
+      margin-top: 30px;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        background: #fff;
+        .download {
+          color: #5687F7;
+          cursor: pointer ;
+
+          &:before {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-right: 10px;
+            line-height: 13px;
+            content: '';
+            background: url('data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABGdBTUEAALGPC/xhBQAAASRJREFUKBWdkbFKA0EQhudfj6yJptRCMJ1gY22liPoGNlGx8QFSRaM22p0WvoCCFlGCnaBgpVa+RizSmVLhTMAdZ4IL2ctWDiz/zj/f7OztgSKxmWarDtQ0TDutw+JLHjF5Q3MmWmamGdVYPdoUA4e9fzVh+ITqaW/LkUtBaDPzCoBnJp4DzNFdw956NvGbgTJPilYErGgujWuqAJdVfQTXax3YS5ny6IuqMu11ft9eBJ4+rxr+aXfPuPzFvTcZsyAd7xMlu3hdQ1cZz5of4F6XmhpXDXzaMbsuM+rjBbvkG7Tm2URODO6rxeYePkTOdR/EHysPgb58cqGaZicBEEncwEM/AehB/v6GGMcRbsRSPpku2e1u9v1EjmZHiLxhqDNVtDe/7nVcupr8gQYAAAAASUVORK5CYII=') no-repeat center;
+            background-size: 13px 13px;
+          }
+        }
+      }
+    }
+
+    .sdb-page {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+}

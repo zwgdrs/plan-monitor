@@ -1,0 +1,65 @@
+@mixin placeholder($color:$light-gray) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin input-hover($border-color, $shadow-color) {
+    &:hover {
+        border-color: $border-color;
+        box-shadow: 0 0 0 2px $shadow-color;
+    }
+}
+
+@mixin input-focus($border-color, $shadow-color) {
+    &:focus {
+        border-color: $border-color;
+        box-shadow: 0 0 0 2px $shadow-color;
+    }
+}
+@mixin input-base {
+    @include input-hover(rgba($primary-color, 0.4), rgba($primary-color, 0.1));
+    @include input-focus($primary-color, rgba($primary-color, 0.2));
+    @include placeholder();
+    vertical-align: middle;
+    padding: 4px 6px;
+    outline: 0;
+    border-radius: $global-radius;
+    border: 1px solid $light-gray;
+    transition: all  $animation-duration-base ease-out;
+}
+
+@mixin input-disabled {
+    background-color: $height-gray;
+    opacity: 1;
+    cursor: not-allowed;
+    color: $light-gray;
+    &:hover {
+        border-color: $light-gray;
+        box-shadow: none;
+    }
+}
+
+@mixin ne-input {
+     .#{$prefix}-input{
+         @include input-base;
+
+         &.disabled,
+         &[disabled] {
+             @include input-disabled;
+         }
+         &.#{$prefix}-input-error {
+             border-color: $danger-color;
+             box-shadow: 0 0 0 2px rgba($danger-color, 0.1);
+             @include input-hover($danger-color, rgba($danger-color, 0.2));
+             @include input-focus($danger-color, rgba($danger-color, 0.2));
+         }
+     }
+}

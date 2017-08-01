@@ -1,0 +1,120 @@
+/// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
+/// @type Boolean
+$body-antialiased: true !default;
+$body-font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif !default;
+$global-weight-normal: 400 !default;
+$global-lineheight: 1.2 !default;
+$global-font-color: #333 !default;
+$global-font-size: 16px !default;
+$global-icon-font-size: 16px !default;
+$global-icon-margin-left: 5px !default;
+$global-icon-margin-right: 5px !default;
+
+$global-line-height: 20px !default;
+$global-width: 1180px !default;
+$global-radius: 4px !default;
+$global-text-direction: ltr !default;
+$body-background: #fff !default;
+$body-font-color: $global-font-color !default;
+$button-font-size: 14px !default;
+
+
+/// Global value used for margin on components.
+/// @type Number
+$global-margin: 1rem !default;
+/// Global font weight used for bold type.
+/// @type Keyword | Number
+$global-weight-bold: bold !default;
+$global-left: if($global-text-direction == rtl, right, left);
+@mixin global-styles {
+    @include -ne-normalize;
+
+    html {
+        font-size: $global-font-size;
+        box-sizing: border-box;
+    }
+
+    // Set box-sizing globally to handle padding and border widths
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    // Default body styles
+    body {
+        padding: 0;
+        margin: 0;
+        font-family: $body-font-family;
+        font-weight: $global-weight-normal;
+        line-height: $global-lineheight;
+        color: $body-font-color;
+        background: $body-background;
+
+        @if ($body-antialiased) {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+
+    img {
+        // Grid defaults to get images and embeds to work properly
+        max-width: 100%;
+        height: auto;
+        -ms-interpolation-mode: bicubic;
+
+        // Get rid of gap under images by making them display: inline-block; by default
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    // Make sure textarea takes on height automatically
+    textarea {
+        height: auto;
+        min-height: 50px;
+        border-radius: $global-radius;
+    }
+
+    // Make select elements are 100% width by default
+    select {
+        width: 100%;
+        border-radius: $global-radius;
+    }
+
+    // Styles Google Maps and MapQuest embeds properly
+    // scss-lint:disable IdSelector
+    #map_canvas,
+    .map_canvas,
+    .mqa-display {
+        img,
+        embed,
+        object {
+            max-width: none !important;
+        }
+    }
+
+    // Reset <button> styles created by most browsers
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        padding: 0;
+        border: 0;
+        border-radius: $global-radius;
+        font-size: $button-font-size;
+        line-height: 1;
+    }
+
+    // Internal classes to show/hide elements in JavaScript
+    .is-visible {
+        display: block !important;
+    }
+
+    .is-hidden {
+        display: none !important;
+    }
+
+    .box-trigger{
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,108 @@
+$flex-justify: (
+    'left': flex-start,
+    'right': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+);
+
+$flex-align: (
+    'top': flex-start,
+    'bottom': flex-end,
+    'middle': center,
+    'stretch': stretch,
+);
+
+$grid-row-width: $global-width !default; // 1180px
+
+$grid-column-count: 24 !default; // 每个宽 30px
+/// 栅格间隔
+$grid-column-gutter: 20 !default; // 间距 20px
+
+@mixin flex {
+    display: flex;
+}
+
+// 定位
+@mixin flex-align($x: null, $y: null) {
+    @if $x {
+        @if map-has-key($flex-justify, $x) {
+            $x: map-get($flex-justify, $x);
+        } @else {
+            @warn 'flex-grid-row-align(): #{$x} is not a valid value for horizontal alignment. Use left, right, center, justify, or spaced.'
+        }
+    }
+
+    @if $y {
+        @if map-has-key($flex-align, $y) {
+            $y: map-get($flex-align, $y);
+        } @else {
+            @warn 'flex-grid-row-align(): #{$y} is not a valid value for vertical alignment. Use top, bottom, middle, or stretch.'
+        }
+    }
+
+    justify-content: $x;
+    align-items: $y;
+}
+
+@mixin flex-align-self($y: null) {
+    @if $y {
+        @if map-has-key($flex-align, $y) {
+            $y: map-get($flex-align, $y);
+        } @else {
+            @warn 'flex-grid-column-align(): #{$y} is not a valid value for alignment. Use top, bottom, middle, or stretch.'
+        }
+    }
+
+    align-self: $y;
+}
+
+@mixin flex-justify-content($x: null) {
+    @if $x {
+        @if map-has-key($flex-justify, $x) {
+            $y: map-get($flex-justify, $x);
+        } @else {
+            @warn 'flex-grid-column-align(): #{$x} is not a valid value for alignment. Use top, bottom, middle, or stretch.'
+        }
+    }
+    justify-content: $x;
+}
+
+// 排序
+@mixin flex-order($order: 0) {
+    order: $order;
+}
+
+@function grid-column($columns) {
+    $width: 0%;
+
+    /// Parsing percents, decimals, and column counts
+    @if type-of($columns) == 'number' {
+        @if unit($columns) == '%' {
+            $width: $columns;
+        } @else if $columns < 1 {
+            $width: percentage($columns);
+        } @else {
+            $width: percentage($columns / $grid-column-count);
+        }
+    }
+
+        /// Parsing "n of n" expressions
+    @else if type-of($columns) == 'list' {
+        @if length($columns) != 3 {
+            @error 'Wrong syntax for grid-column(). Use the format "n of n".';
+        } @else {
+            $width: percentage(nth($columns, 1) / nth($columns, 3));
+        }
+    }
+
+        /// Anything else is incorrect
+    @else {
+        @error 'Wrong syntax for grid-column(). Use a number, decimal, percentage, or "n of n".';
+    }
+
+    @return $width;
+}
+
+@import "flex-grid";
+

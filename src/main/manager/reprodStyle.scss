@@ -1,0 +1,117 @@
+.tabs {
+    margin-bottom: 20px;
+    :global {
+        .ne-tab {
+            flex: 1 1 auto!important;
+            max-width: 80px;
+            font-size: 20px;
+            height: initial;
+            padding-top: 35px;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.search {
+    composes: search from './contentStyle.scss';
+    width: 650px;
+}
+
+.list-head {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 60px;
+    color: #333333;
+    text-align: center;
+    background: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    height: 60px;
+}
+
+.three-col {
+    span {
+        display: inline-block;
+        width: 230px;
+        margin-right: 20px;
+        &:first-child {
+            margin-right: 0;
+            width: 430px;
+        }
+    }
+}
+
+.four-col {
+    span {
+        display: inline-block;
+        width: 180px;
+        margin-right: 20px;
+        &:first-child {
+            margin-right: 0;
+            width: 380px;
+        }
+        &:last-child {
+            width: 130px;
+        }
+    }
+}
+
+.article-list-head {
+    composes: list-head three-col;
+}
+
+.live-list-head {
+    composes: list-head four-col;
+}
+
+.article-card {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 60px;
+    color: #666666;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    border-top: 0;
+    height: 60px;
+    span {
+        display: inline-block;
+        width: 230px;
+        margin-right: 20px;
+        &:first-child {
+            font-size: 16px;
+            color: #333333;
+            width: 430px;
+            margin-right: 0;
+        }
+        &:last-child {
+            color: #3B77BE;
+        }
+    }
+}
+
+
+
+.live-card {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 60px;
+    color: #666666;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    border-top: 0;
+    height: 60px;
+    span {
+        display: inline-block;
+        width: 180px;
+        margin-right: 20px;
+        &:first-child {
+            font-size: 16px;
+            color: #333333;
+            width: 380px;
+            margin-right: 0;
+        }
+        &:last-child {
+            color: #3B77BE;
+            width: 130px;
+        }
+    }
+}

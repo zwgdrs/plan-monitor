@@ -1,0 +1,14 @@
+.msg-list {
+    :global {
+        .row {
+            &:nth-child(2n):not(:last-child) {
+                background: #FAFAFA;
+            }
+
+            .column {
+                line-height: 1.5;
+                padding: 28px 20px;
+            }
+        }
+    }
+}

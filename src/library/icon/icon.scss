@@ -1,0 +1,144 @@
+//@import "../scss/var/variable";
+//@import "css/animation.css";
+@mixin ne-icon{
+    $icon-prefix : #{$prefix}-icon;
+
+    @font-face {
+        font-family: 'ne-icon';
+        src: url('#{$font-path}/ne-icon.eot?49129029');
+        src: url('#{$font-path}/ne-icon.eot?49129029#iefix') format('embedded-opentype'),
+        url('#{$font-path}/ne-icon.woff2?49129029') format('woff2'),
+        url('#{$font-path}/ne-icon.woff?49129029') format('woff'),
+        url('#{$font-path}/ne-icon.ttf?49129029') format('truetype'),
+        url('#{$font-path}/ne-icon.svg?49129029#ne-icon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .#{$icon-prefix} {
+        &[class^="#{$icon-prefix}-"]:before,
+        &[class*=" #{$icon-prefix}-"]:before {
+            font-family: "#{$icon-prefix}";
+            font-style: normal;
+            font-weight: normal;
+            speak: none;
+
+            display: inline-block;
+            text-decoration: inherit;
+            width: 1em;
+            margin-right: .2em;
+            text-align: center;
+            /* opacity: .8; */
+
+            /* For safety - reset parent styles, that can break glyph codes*/
+            font-variant: normal;
+            text-transform: none;
+
+            /* fix buttons height, for twitter bootstrap */
+            line-height: 1em;
+
+            /* Animation center compensation - margins should be symmetric */
+            /* remove if not needed */
+            margin-left: .2em;
+
+            /* you can be more comfortable with increased icons size */
+            /* font-size: 120%; */
+
+            /* Font smoothing. That was taken from TWBS */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            /* Uncomment for 3D effect */
+            /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+        }
+    }
+    //
+    //.#{$icon-prefix}-spin5:before { content: '\21'; }
+    //.#{$icon-prefix}-spin2:before { content: '\22'; }
+    //.#{$icon-prefix}-edit:before { content: '\23'; }
+    //.#{$icon-prefix}-spin1:before { content: '\24'; }
+    //.#{$icon-prefix}-check-empty:before { content: '\25'; }
+    //.#{$icon-prefix}-circle-thin:before { content: '\26'; }
+    //.#{$icon-prefix}-check:before { content: '\27'; }
+    //.#{$icon-prefix}-cancel:before { content: '\28'; }
+    //.#{$icon-prefix}-cancel-circle:before { content: '\2b'; }
+    //.#{$icon-prefix}-attention:before { content: '\2c'; }
+    //.#{$icon-prefix}-ok-1:before { content: '\2d'; }
+    //.#{$icon-prefix}-cancel-2:before { content: '\2e'; }
+    //.#{$icon-prefix}-ok-circled:before { content: '\2f'; }
+    //.#{$icon-prefix}-cancel-circled:before { content: '\30'; }
+    //.#{$icon-prefix}-star:before { content: '\e800'; }
+    //.#{$icon-prefix}-edit-o:before { content: '\e803'; }
+    //.#{$icon-prefix}-file:before { content: '\e805'; }
+    //.#{$icon-prefix}-setting:before { content: '\e806'; }
+    //.#{$icon-prefix}-income:before { content: '\e807'; }
+    //.#{$icon-prefix}-home:before { content: '\e808'; }
+    //.#{$icon-prefix}-chart:before { content: '\e80a'; }
+    //.#{$icon-prefix}-mail:before { content: '\e80b'; }
+    //.#{$icon-prefix}-right-arrow:before { content: '\e80c'; }
+    //.#{$icon-prefix}-left-arrow:before { content: '\e80d'; }
+    //.#{$icon-prefix}-spin4:before { content: '\e848'; }
+    //.#{$icon-prefix}-chat-empty:before { content: '\f0e6'; }
+    //.#{$icon-prefix}-qq:before { content: '\f1d6'; }
+    //.#{$icon-prefix}-copyright:before { content: '\f1f9'; }
+    //.#{$icon-prefix}-safari:before { content: '\f267'; }
+    //.#{$icon-prefix}-chrome:before { content: '\f268'; }
+    //.#{$icon-prefix}-firefox:before { content: '\f269'; }
+    //.#{$icon-prefix}-opera:before { content: '\f26a'; }
+    //.#{$icon-prefix}-ie:before { content: '\f26b'; }
+    //.#{$icon-prefix}-edge:before { content: '\f282'; }
+
+    .#{$icon-prefix}-spin4:before { content: '\21'; } /* '!' */
+    .#{$icon-prefix}-spin3:before { content: '\22'; } /* '&quot;' */
+    .#{$icon-prefix}-edit:before { content: '\23'; } /* '#' */
+    .#{$icon-prefix}-spin2:before { content: '\24'; } /* '$' */
+    .#{$icon-prefix}-check:before { content: '\25'; } /* '%' */
+    .#{$icon-prefix}-circle:before { content: '\26'; } /* '&amp;' */
+    .#{$icon-prefix}-ok:before { content: '\27'; } /* ''' */
+    .#{$icon-prefix}-cancel:before { content: '\28'; } /* '(' */
+    .#{$icon-prefix}-ie:before { content: '\29'; } /* ')' */
+    .#{$icon-prefix}-function:before { content: '\2a'; } /* '*' */
+    .#{$icon-prefix}-help-o:before { content: '\2b'; } /* '+' */
+    .#{$icon-prefix}-ok-1:before { content: '\2d'; } /* '-' */
+    .#{$icon-prefix}-cancel-1:before { content: '\2e'; } /* '.' */
+    .#{$icon-prefix}-ok-o:before { content: '\2f'; } /* '/' */
+    .#{$icon-prefix}-cancel-o:before { content: '\30'; } /* '0' */
+    .#{$icon-prefix}-qrcode:before { content: '\31'; } /* '1' */
+    .#{$icon-prefix}-wechat:before { content: '\32'; } /* '2' */
+    .#{$icon-prefix}-down-arrow:before { content: '\33'; } /* '3' */
+    .#{$icon-prefix}-up-arrow:before { content: '\34'; } /* '4' */
+    .#{$icon-prefix}-down-o:before { content: '\35'; } /* '5' */
+    .#{$icon-prefix}-left-o:before { content: '\36'; } /* '6' */
+    .#{$icon-prefix}-right-o:before { content: '\37'; } /* '7' */
+    .#{$icon-prefix}-up-o:before { content: '\38'; } /* '8' */
+    .#{$icon-prefix}-warn:before { content: '\39'; } /* '9' */
+    .#{$icon-prefix}-play-o:before { content: '\3a'; } /* ':' */
+    .#{$icon-prefix}-pause-o:before { content: '\3b'; } /* ';' */
+    .#{$icon-prefix}-play-outline:before { content: '\3c'; } /* '&lt;' */
+    .#{$icon-prefix}-play:before { content: '\3d'; } /* '=' */
+    .#{$icon-prefix}-dot:before { content: '\3e'; } /* '&gt;' */
+    .#{$icon-prefix}-stop:before { content: '\3f'; } /* '?' */
+    .#{$icon-prefix}-pause:before { content: '\40'; } /* '@' */
+    .#{$icon-prefix}-star:before { content: '\e800'; } /* '' */
+    .#{$icon-prefix}-edit-o:before { content: '\e803'; } /* '' */
+    .#{$icon-prefix}-file:before { content: '\e805'; } /* '' */
+    .#{$icon-prefix}-setting:before { content: '\e806'; } /* '' */
+    .#{$icon-prefix}-income:before { content: '\e807'; } /* '' */
+    .#{$icon-prefix}-home:before { content: '\e808'; } /* '' */
+    .#{$icon-prefix}-chart:before { content: '\e80a'; } /* '' */
+    .#{$icon-prefix}-mail:before { content: '\e80b'; } /* '' */
+    .#{$icon-prefix}-right-arrow:before { content: '\e80c'; } /* '' */
+    .#{$icon-prefix}-left-arrow:before { content: '\e80d'; } /* '' */
+    .#{$icon-prefix}-down:before { content: '\e826'; } /* '' */
+    .#{$icon-prefix}-up:before { content: '\e827'; } /* '' */
+    .#{$icon-prefix}-left:before { content: '\e828'; } /* '' */
+    .#{$icon-prefix}-right:before { content: '\e829'; } /* '' */
+    .#{$icon-prefix}-spin1:before { content: '\e848'; } /* '' */
+    .#{$icon-prefix}-qq:before { content: '\f1d6'; } /* '' */
+    .#{$icon-prefix}-copyright:before { content: '\f1f9'; } /* '' */
+    .#{$icon-prefix}-safari:before { content: '\f267'; } /* '' */
+    .#{$icon-prefix}-chrome:before { content: '\f268'; } /* '' */
+    .#{$icon-prefix}-firefox:before { content: '\f269'; } /* '' */
+    .#{$icon-prefix}-opera:before { content: '\f26a'; } /* '' */
+    .#{$icon-prefix}-edge:before { content: '\f282'; } /* '' */
+}

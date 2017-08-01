@@ -1,0 +1,22 @@
+@mixin tabs-base {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-width: 60px;
+    border-bottom: 1px solid $border-color-base;
+    border-radius: $global-radius;
+    transition: all  $animation-duration-base ease-out;
+}
+
+@mixin ne-tabs {
+     .#{$prefix}-tabs {
+         @include tabs-base;
+     }
+     .#{$prefix}-tabs-inkbar {
+         height: 2px;
+         background-color: $primary-color;
+         position: absolute;
+         bottom: -1px;
+         transition: all  $animation-duration-base ease-out;
+     }
+}

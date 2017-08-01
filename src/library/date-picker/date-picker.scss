@@ -1,0 +1,38 @@
+.date-picker {
+  position: relative;
+  .dt-item-true{
+    display: block;
+  }
+  .dt-item-false{
+    display: none;
+  }
+}
+
+.date-range {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 400px;
+  .range-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dt-item-true{
+    display: block;
+  }
+  .dt-item-false{
+    display: none;
+  }
+  .date-separator {
+    padding: 5px;
+  }
+  .left-inner {
+    position: relative;
+  }
+  .right-inner {
+    position: relative;
+  }
+}

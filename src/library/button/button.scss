@@ -1,0 +1,205 @@
+//@import "../scss/var/variable";
+@mixin button-base {
+    //@include disable-mouse-outline;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    //height: $btn-height-base;
+    //min-width: $btn-min-width-base;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: all  $animation-duration-base ease-out;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: $button-radius;
+    padding: $btn-padding-base;
+    margin: $btn-margin-base;
+    font-size: map-get($button-sizes, default);
+
+    &,
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+
+    &:not([disabled]):hover {
+        text-decoration: none;
+    }
+
+    &:not([disabled]):active {
+        outline: 0;
+        transition: none;
+    }
+
+    &.disabled,
+    &[disabled] {
+        cursor: not-allowed;
+        > * {
+            pointer-events: none;
+        }
+    }
+}
+
+/// Sets the visual style of a button.
+/// @param {Color} $background [$button-background] - Background color of the button.
+/// @param {Color} $background-hover [$button-background-hover] - Background color of the button on hover. Set to `auto` to have the mixin automatically generate a hover color.
+/// @param {Color} $color [$button-color] - Text color of the button. Set to `auto` to automatically generate a color based on the background color.
+@mixin button-style(
+    $background: $button-background,
+    $background-hover: $button-background-hover,
+    $color: $button-color
+) {
+    @if $color == auto or lightness($color) > 60% {
+        $color: foreground($background);
+    }
+
+    @if $background-hover == auto {
+        $background-hover: scale-color($background, $lightness: -20%);
+    }
+
+    $background-active: scale-color($background, $saturation: 40%);
+
+    background-color: $background;
+    border-color: $background;
+    color: $color;
+
+    &:hover, &:focus {
+        background-color: $background-hover;
+        border-color: $background-hover;
+        color: $color;
+    }
+
+    &:active {
+        background-color: $background-active;
+        border-color: $background-active;
+        color: $color;
+    }
+}
+
+@mixin button-disabled {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        opacity: $button-opacity-disabled;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+@mixin button-hollow-style($color: $primary-color) {
+    @if lightness($color) > 60% {
+        $color: $light-black;
+    }
+    $color-hover: scale-color($color, $lightness: 30%);
+
+    color: $color;
+    border: 1px solid $color;
+    background-color: transparent;
+
+    &,
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
+
+    &:hover, &:focus {
+        border-color: $color-hover;
+    }
+}
+
+@mixin button-click-animation-base {
+    &:after {
+        content: " ";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        bottom: -1px;
+        right: -1px;
+        border-width: 0;
+        border-style: solid;
+        border-radius: inherit;
+        opacity: 0.5;
+        animation: buttonEffect $animation-duration-slower;
+        display: block;
+    }
+}
+
+@mixin button-click-animation-color($base-color) {
+    @if lightness($base-color) > 60% {
+        $base-color: $light-black;
+    }
+    border-color: $base-color;
+    &:after {
+        border-color: $base-color;
+    }
+}
+
+@mixin ne-button {
+    .#{$prefix}-btn {
+        @include button-base;
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+        color: $dark-black;
+
+        &.#{$prefix}-btn-sm {
+            padding: $btn-padding-sm;
+        }
+
+        &.#{$prefix}-btn-lg {
+            padding: $btn-padding-lg;
+        }
+
+        &.#{$prefix}-btn-circle {
+            border-radius: 9999px;
+        }
+
+        // Disabled style
+        &.disabled,
+        &[disabled] {
+            @include button-disabled;
+        }
+
+        // click
+        &.#{$prefix}-btn-clicked {
+            @include button-click-animation-base;
+            @include button-click-animation-color(map_get($palette, danger));
+        }
+
+        &.#{$prefix}-btn-hollow {
+            @include button-hollow-style($primary-color);
+
+            &.#{$prefix}-btn-dashed {
+                border-style: dashed !important;
+            }
+        }
+
+        // Colors
+        @each $name, $color in $palette {
+            &.#{$prefix}-btn-#{$name} {
+                @include button-style($color, auto);
+                // Hollow style
+                &.#{$prefix}-btn-hollow {
+                    @include button-hollow-style($color);
+                }
+
+                &.#{$prefix}-btn-clicked {
+                    @include button-click-animation-color($color);
+                }
+            }
+        }
+
+        &.#{$prefix}-btn-loading {
+            padding-left: get-side($btn-padding-base, left) + (1.4 * $btn-font-size-base);
+            .#{$prefix}-icon {
+                margin-left: -1.5 * $btn-font-size-base;
+            }
+        }
+
+        &.#{$prefix}-btn-icon-only {
+
+        }
+    }
+}

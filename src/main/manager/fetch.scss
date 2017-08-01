@@ -1,0 +1,24 @@
+.fetch-modal {
+    .label:first-child {
+        margin: 0 auto 15px;
+    }
+    .fetch-modal {
+        margin-bottom: 20px;
+    }
+}
+
+.type-selector {
+    composes: type-selector from './contentStyle.scss';
+}
+
+.item {
+    composes: item from './contentStyle.scss';
+}
+
+.title {
+    composes: title from './contentStyle.scss';
+}
+
+div.fetch-selector {
+    width: 200px;
+}
